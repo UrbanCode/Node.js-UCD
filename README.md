@@ -25,11 +25,11 @@ This plug-in is protected under the [Eclipse Public 1.0 License](http://www.ecli
 
 1. Expand the Groovy project that you checked-out from example template.
 2. Open build.xml file and execute it as an Ant Build operation (Run As -> Ant Build)
-3. The built plugin is located at releases/Git-Install-UCD-vdev.zip 
+3. The built plugin is located at releases/Node.js-UCD-vdev.zip 
 
 ### How to build the plugin from command line:
 
 1. Navigate to the base folder of the project through command line.
 2. Make sure that there is build.xml file there, and then execute 'ant' command.
-3. The built plugin is located at releases/Git-Install-UCD-vdev.zip 
+3. The built plugin is located at releases/Node.js-UCD-vdev.zip 
 Note: Edit the Build.xml to change the version 'dev' to a release number.
