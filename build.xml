@@ -9,9 +9,9 @@
 
 -->
 
-<project name="NodeJSplugin" default="main" basedir=".">
+<project name="NodeJSplugin" default="main" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
 
-		<dirname property="com.ibm.rational.raf.deploy.plugin.build.project" file="${ant.file.com.ibm.rational.raf.deploy.plugin}" xmlns:ivy="antlib:org.apache.ivy.ant" />
+		<dirname property="com.ibm.rational.raf.deploy.plugin.build.project" file="${ant.file.com.ibm.rational.raf.deploy.plugin}" />
 		<dirname property="workspace" file="${com.ibm.rational.raf.deploy.plugin.build.project}" />
 
 		<!-- assumes the build.properties is set via the command line ANT invocation -->
