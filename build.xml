@@ -11,7 +11,7 @@
 
 <project name="NodeJSplugin" default="main" basedir=".">
 
-		<dirname property="com.ibm.rational.raf.deploy.plugin.build.project" file="${ant.file.com.ibm.rational.raf.deploy.plugin}" />
+		<dirname property="com.ibm.rational.raf.deploy.plugin.build.project" file="${ant.file.com.ibm.rational.raf.deploy.plugin}" xmlns:ivy="antlib:org.apache.ivy.ant" />
 		<dirname property="workspace" file="${com.ibm.rational.raf.deploy.plugin.build.project}" />
 
 		<!-- assumes the build.properties is set via the command line ANT invocation -->
@@ -29,15 +29,17 @@
 
 		<property name="deployPluginArchiveName" value="releases/Node.js-UCD-v${DISPLAY_VERSION}.zip" />
 
-		<property name="src.dir" value="${basedir}/src" />
-		<property name="build.dir" value="${basedir}/build" />
-		<property name="plugin.dir" value="${basedir}/plugin" />
+		<property name="src.dir"     value="${basedir}/src" />
+		<property name="build.dir"   value="${basedir}/build" />
+		<property name="plugin.dir"  value="${basedir}/plugin" />
 		<property name="license.dir" value="${basedir}/license" />
-		<property name="doc.dir" value="${basedir}/doc" />
-	    <target name="main" depends="clean, copyDependencies, buildZip" />
+		<property name="doc.dir"     value="${basedir}/doc" />
+        <property name="lib.dir"     value="${basedir}/lib" />
+
+	    <target name="main" depends="clean, resolve, build, dist" />
 
 		<!-- Copy in the dependencies -->
-		<target name="copyDependencies">
+		<target name="build" depends="resolve">
 
 			<!-- inputs (info, upgrade) -->
 			<copy todir="${build.dir}">
@@ -65,11 +67,20 @@
 				<fileset dir="${doc.dir}">
 					<include name="HowTo.html" />
 				</fileset>
-			</copy>							
+			</copy>
+
+            <!-- Copy Libaries -->
+            <mkdir dir="${build.dir}/lib"/>
+            <copy todir="${build.dir}/lib">
+                <fileset dir="${lib.dir}">
+                            <exclude name="**javadoc.jar" />
+                            <exclude name="**sources.jar" />
+                </fileset>
+            </copy>            
 		</target>
 
 		<!-- Build the actual zip file that gets uploaded to uDeploy -->
-		<target name="buildZip">
+		<target name="dist" depends="resolve">
 			<zip destfile="${deployPluginArchiveName}" basedir="${build.dir}" update="false"/>
 		</target>
 
@@ -80,5 +91,22 @@
 			<delete file="${deployPluginArchiveName}" />
 		</target>
 
-	</project>
+    <target name="resolve" depends="install-ivy" unless="resolve.no" description="Resolve all dependencies">
+        <mkdir dir="${lib.dir}"/>
+        <!-- Insert Apache IVY Dependencies here -->
+    <!--
+        <ivy:cachepath pathid="${lib.dir}">
+        </ivy:cachepath>
+        <ivy:retrieve />
+    -->
+    </target>
+
+    <!-- Install Ivy -->
+    <available classname="org.apache.ivy.Main" property="ivy.installed"/> 
+    <target name="install-ivy" description="Install ivy" unless="ivy.installed">
+        <mkdir dir="${user.home}/.ant/lib"/>
+        <get dest="${user.home}/.ant/lib/ivy.jar" src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.3.0/ivy-2.3.0.jar"/>
+        <fail message="Ivy has been installed. Run the build again"/>
+    </target>
+</project>
 

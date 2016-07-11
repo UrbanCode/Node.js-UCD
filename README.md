@@ -3,7 +3,7 @@
 Note: This is not the plugin distributable! This is the source code. To find the installable plugin, go into the 'Releases' tab, and download a stable version.
 
 ### License
-This plug-in is protected under the [Eclipse Public 1.0 License](http://www.eclipse.org/legal/epl-v10.html)
+This plugin is protected under the [Eclipse Public 1.0 License](http://www.eclipse.org/legal/epl-v10.html)
 
 ### Compatibility
 	The IBM UrbanCode Deploy automation plug-in installs and configures the latest version of Node.js.
