@@ -29,7 +29,7 @@
  ]]></post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
-      <arg path='classes:${sdkJar}:lib/commons-codec.jar:lib/activation-1.1.1.jar:lib/commons-logging.jar:lib/httpclient-cache.jar:lib/httpclient.jar:lib/httpcore.jar:lib/httpmime.jar:lib/javamail-1.4.1.jar' />
+      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
       <arg file='install.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />
@@ -55,7 +55,7 @@
  ]]></post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
-      <arg path='classes:${sdkJar}:lib/commons-codec.jar:lib/activation-1.1.1.jar:lib/commons-logging.jar:lib/httpclient-cache.jar:lib/httpclient.jar:lib/httpcore.jar:lib/httpmime.jar:lib/javamail-1.4.1.jar' />
+      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
       <arg file='install_module.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />

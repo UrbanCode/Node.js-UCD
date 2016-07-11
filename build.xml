@@ -73,8 +73,8 @@
             <mkdir dir="${build.dir}/lib"/>
             <copy todir="${build.dir}/lib">
                 <fileset dir="${lib.dir}">
-                            <exclude name="**javadoc.jar" />
-                            <exclude name="**sources.jar" />
+                    <exclude name="**javadoc.jar" />
+                    <exclude name="**sources.jar" />
                 </fileset>
             </copy>            
 		</target>
@@ -94,11 +94,11 @@
     <target name="resolve" depends="install-ivy" unless="resolve.no" description="Resolve all dependencies">
         <mkdir dir="${lib.dir}"/>
         <!-- Insert Apache IVY Dependencies here -->
-    <!--
         <ivy:cachepath pathid="${lib.dir}">
+            <!-- http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.ibm.urbancode.plugins%22 -->
+            <dependency org="com.ibm.urbancode.plugins" name="groovy-plugin-utils" rev="1.0" transitive="false" />
         </ivy:cachepath>
         <ivy:retrieve />
-    -->
     </target>
 
     <!-- Install Ivy -->
