@@ -1,10 +1,10 @@
 <!--
 
 /**
- * © Copyright IBM Corporation 2014.  
+ * © Copyright IBM Corporation 2014.
  * This is licensed under the following license.
  * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. 
+ * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
 -->
@@ -19,7 +19,7 @@
 		<property file="${workspace}/builder/ant-common/${build.properties}" />
 
 		<!-- bring in common_build_tokens filterset -->
-		<property name="DISPLAY_VERSION" value="dev" />
+		<property name="DISPLAY_VERSION" value="l1dev" />
 
 		<tstamp>
 			<format property="TODAY_X" pattern="yyMMdd" locale="en" />
@@ -48,8 +48,8 @@
 					<include name="upgrade.xml" />
 					<include name="plugin.xml" />
 				</fileset>
-				
-				<fileset dir="${src.dir}">					
+
+				<fileset dir="${src.dir}">
 				</fileset>
 			</copy>
 
@@ -60,7 +60,7 @@
 					<include name="EPL.txt" />
 				</fileset>
 			</copy>
-			
+
 			<mkdir dir="${build.dir}/doc"/>
 			<!-- copy doc -->
 			<copy todir="${build.dir}/doc">
@@ -76,7 +76,7 @@
                     <exclude name="**javadoc.jar" />
                     <exclude name="**sources.jar" />
                 </fileset>
-            </copy>            
+            </copy>
 		</target>
 
 		<!-- Build the actual zip file that gets uploaded to uDeploy -->
@@ -102,11 +102,10 @@
     </target>
 
     <!-- Install Ivy -->
-    <available classname="org.apache.ivy.Main" property="ivy.installed"/> 
+    <available classname="org.apache.ivy.Main" property="ivy.installed"/>
     <target name="install-ivy" description="Install ivy" unless="ivy.installed">
         <mkdir dir="${user.home}/.ant/lib"/>
         <get dest="${user.home}/.ant/lib/ivy.jar" src="http://search.maven.org/remotecontent?filepath=org/apache/ivy/ivy/2.3.0/ivy-2.3.0.jar"/>
         <fail message="Ivy has been installed. Run the build again"/>
     </target>
 </project>
-

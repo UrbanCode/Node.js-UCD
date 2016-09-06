@@ -27,20 +27,19 @@ echo Calling npm to install module
 echo ===============================================================
 echo
 
-if [[ "$@" -ne 2 ]]; then
-    echo >&2 "You must supply 2 arguments <module path> <module name>!"
+if [[ "$@" -ne 3 ]]; then
+    echo >&2 "You must supply 3 arguments <module dir> <config key> <config value>!"
     exit 1
 fi
-# check if target dir exists
+
 if [[ ! -d "$1" ]]; then
-    echo >&2 "$1 is does not exist so exiting..."
+    echo >&2 "$1 does not exist so exiting..."
     exit 1
 fi
 
 cd $1
 
-echo "Installing node module $2 to $1 ..."
+echo "Configuring local npm for $2 -> $3 ..."
+npm config set $2 $3
 
-npm install $2
-
-exit 0
+# exit 0

@@ -27,17 +27,18 @@ catch (IOException e) {
     throw new RuntimeException(e)
 }
 
-def modName = props['moduleName']
 def modPath = props['modulePath']
+def npmConfigKey = props['npmConfigKey']
+def npmConfigValue = '"' + props['npmConfigValue'] + '"'
 
 scriptFile = getClass().protectionDomain.codeSource.location.path
 def scriptDir = new File(scriptFile).parent
 println scriptDir
-def script = "/install-node-module.sh"
+def script = "/configure-node.sh"
 
 def cmd = scriptDir + script
 
-def commandArgs = [cmd, modPath, modName];
+def commandArgs = [cmd, modPath, npmConfigKey, npmConfigValue];
 
 println commandArgs.join(' ');
 def procBuilder = new ProcessBuilder(commandArgs);
