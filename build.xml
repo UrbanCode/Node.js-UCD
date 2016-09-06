@@ -19,7 +19,7 @@
 		<property file="${workspace}/builder/ant-common/${build.properties}" />
 
 		<!-- bring in common_build_tokens filterset -->
-		<property name="DISPLAY_VERSION" value="dev" />
+		<property name="DISPLAY_VERSION" value="l1dev" />
 
 		<tstamp>
 			<format property="TODAY_X" pattern="yyMMdd" locale="en" />

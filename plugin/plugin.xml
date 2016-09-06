@@ -11,7 +11,7 @@
 -->
 <plugin xmlns='http://www.urbancode.com/PluginXMLSchema_v1' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
   <header>
-    <identifier id='com.urbancode.air.plugin.Nodejs' version='4' name='Nodejs' />
+    <identifier id='com.urbancode.air.plugin.Nodejs' version='5' name='Nodejs' />
     <description>The Nodejs plugin is an automation based plugin for IBM UrbanCode Deploy. It is used to install and configure Node.js.</description>
     <tag>Middleware/Nodejs</tag>
   </header>
@@ -40,6 +40,9 @@
     <properties>
       <property name='moduleName' required='true'>
         <property-ui type='textBox' label='Node Module Name' description='Name of the Node Module to Install.' />
+      </property>
+      <property name='moduleVersion' required='false'>
+        <property-ui type='textBox' label='Node Module Version' description='Version of module to deploy.'  />
       </property>
       <property name='modulePath' required='false'>
         <property-ui type='textBox' label='Node Module Path' description='Path in which to install the Node Module.' />

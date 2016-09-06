@@ -41,6 +41,12 @@ cd $1
 
 echo "Installing node module $2 to $1 ..."
 
-npm install $2
+if [[ -z $3 ]]; then
+	echo "Installing latest version of $2..."
+	npm install $2
+else
+	echo "Installing version $2 @ $3 ..."
+	npm install $2@$3
+fi
 
 exit 0

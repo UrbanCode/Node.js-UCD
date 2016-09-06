@@ -28,6 +28,7 @@ catch (IOException e) {
 }
 
 def modName = props['moduleName']
+def modVersion = props['moduleVersion']
 def modPath = props['modulePath']
 
 scriptFile = getClass().protectionDomain.codeSource.location.path
@@ -37,7 +38,7 @@ def script = "/install-node-module.sh"
 
 def cmd = scriptDir + script
 
-def commandArgs = [cmd, modPath, modName];
+def commandArgs = [cmd, modPath, modName, modVersion];
 
 println commandArgs.join(' ');
 def procBuilder = new ProcessBuilder(commandArgs);
