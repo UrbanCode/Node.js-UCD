@@ -116,7 +116,7 @@
   </meta-html>
 
   <!-- Do not change the release-version, the build process injects it. -->
-  <release-version>5</release-version>
+  <release-version>4</release-version>
 
 
   <release-notes>
@@ -147,8 +147,11 @@
 	  <release-note plugin-version="2">
 Initial release of the Nodejs plugin which provides steps for installing Nodejs (and npm) and install Node Modules.
 	  </release-note>
-	  <release-note plugin-version="3">
+    <release-note plugin-version="3">
 Initial GitHub Release
+	  </release-note>
+    <release-note plugin-version="4">
+Adding node configuration task, added version option to node module installation.
 	  </release-note>
   </release-notes>
 </pluginInfo>
