@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-
-/**
- * © Copyright IBM Corporation 2014.
- * This is licensed under the following license.
- * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
- */
-
+  © Copyright IBM Corporation 2014, 2016.
+  This is licensed under the following license.
+  The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
+  U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 -->
 <plugin xmlns='http://www.urbancode.com/PluginXMLSchema_v1' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
   <header>
@@ -20,16 +16,17 @@
     <properties>
     </properties>
     <post-processing><![CDATA[
- if (properties.get("exitCode") != 0) {
- properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
- }
- else {
- properties.put("Status", "Success");
- }
- ]]></post-processing>
+         if (properties.get("exitCode") != 0) {
+         properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
+         }
+         else {
+         properties.put("Status", "Success");
+         }
+         ]]>
+    </post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
-      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
+      <arg path='classes' />
       <arg file='install.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />
@@ -49,16 +46,17 @@
       </property>
     </properties>
     <post-processing><![CDATA[
- if (properties.get("exitCode") != 0) {
- properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
- }
- else {
- properties.put("Status", "Success");
- }
- ]]></post-processing>
+        if (properties.get("exitCode") != 0) {
+        properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
+        }
+        else {
+        properties.put("Status", "Success");
+        }
+        ]]>
+    </post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
-      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
+      <arg path='classes' />
       <arg file='install_module.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />
@@ -78,16 +76,17 @@
       </property>
     </properties>
     <post-processing><![CDATA[
- if (properties.get("exitCode") != 0) {
- properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
- }
- else {
- properties.put("Status", "Success");
- }
- ]]></post-processing>
+        if (properties.get("exitCode") != 0) {
+        properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
+        }
+        else {
+        properties.put("Status", "Success");
+        }
+        ]]>
+    </post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
-      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
+      <arg path='classes' />
       <arg file='configure-node.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />

@@ -1,9 +1,9 @@
-#/**
-# * � Copyright IBM Corporation 2014.  
-# * This is licensed under the following license.
-# * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
-# * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. 
-# */
+#
+#  � Copyright IBM Corporation 2014, 2016.
+#  This is licensed under the following license.
+#  The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
+#  U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+#
 #!/bin/bash
 
 # Define functions
@@ -12,7 +12,7 @@ rhelInstall() {
 			echo "Ensure we have the EPEL installed"
 			sudo rpm -Uvh http://download-i2.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 			echo "Calling yum to install nodejs and npm...."
-			echo 
+			echo
 			sudo yum -y install nodejs npm --enablerepo=epel
 			if [ $? -ne 0 ]; then
 				echo
@@ -24,7 +24,7 @@ rhelInstall() {
 
 yumInstall() {
 			echo "Calling yum to install nodejs and npm...."
-			echo 
+			echo
 			sudo yum -y install nodejs npm
 			if [ $? -ne 0 ]; then
 				echo
@@ -36,8 +36,8 @@ yumInstall() {
 
 zypperInstall() {
 			echo "Calling zypper to install nodejs and npm...."
-			echo 
-			sudo zypper -n ar http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_12.1/ NodeJSBuildService 
+			echo
+			sudo zypper -n ar http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_12.1/ NodeJSBuildService
 			sudo zypper -n in nodejs nodejs-devel
 			if [ $? -ne 0 ]; then
 				echo
@@ -51,7 +51,7 @@ aptgetInstall() {
 			echo "Install pre-reqs of python, g++, make and checkinstall"
 			sudo apt-get --fix-missing -q -y install python g++ make checkinstall
 			src=$(mktemp -d) && cd $src
-			echo "wget latest nodejs source..." 
+			echo "wget latest nodejs source..."
 			wget -N http://nodejs.org/dist/node-latest.tar.gz
 			if [ $? -ne 0 ]; then
 				echo
@@ -145,7 +145,7 @@ case "$detectedDistro" in
 			echo
 			yumInstall
 			exit 0
-            ;;         
+            ;;
         red)
         	echo ===============================================================
 			echo "Running RedHat installation steps"
@@ -169,7 +169,7 @@ case "$detectedDistro" in
 			echo
 			aptgetInstall
 			exit 0
-            ;;               
+            ;;
         debian)
         	echo ===============================================================
 			echo "Running Debian installation steps"
@@ -189,7 +189,7 @@ case "$detectedDistro" in
         *)
             echo $"Linux distribution detected is unsupported by this plugin - sorry :-("
             exit 1
- 
+
 esac
 
 exit 0

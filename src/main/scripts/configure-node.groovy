@@ -1,5 +1,5 @@
 /**
- * � Copyright IBM Corporation 2014.
+ * � Copyright IBM Corporation 2014, 2016.
  * This is licensed under the following license.
  * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
  * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
@@ -27,18 +27,18 @@ catch (IOException e) {
     throw new RuntimeException(e)
 }
 
-def modName = props['moduleName']
-def modVersion = props['moduleVersion']
 def modPath = props['modulePath']
+def npmConfigKey = props['npmConfigKey']
+def npmConfigValue = '"' + props['npmConfigValue'] + '"'
 
 scriptFile = getClass().protectionDomain.codeSource.location.path
 def scriptDir = new File(scriptFile).parent
 println scriptDir
-def script = "/install-node-module.sh"
+def script = "/configure-node.sh"
 
 def cmd = scriptDir + script
 
-def commandArgs = [cmd, modPath, modName, modVersion];
+def commandArgs = [cmd, modPath, npmConfigKey, npmConfigValue];
 
 println commandArgs.join(' ');
 def procBuilder = new ProcessBuilder(commandArgs);

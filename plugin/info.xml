@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
-
-/**
- * © Copyright IBM Corporation 2014.
- * This is licensed under the following license.
- * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
- */
-
+  © Copyright IBM Corporation 2014, 2016.
+  This is licensed under the following license.
+  The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
+  U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 -->
+
 <pluginInfo>
   <!--
 
@@ -116,7 +113,7 @@
   </meta-html>
 
   <!-- Do not change the release-version, the build process injects it. -->
-  <release-version>4</release-version>
+  <release-version>4.0</release-version>
 
 
   <release-notes>
@@ -144,14 +141,14 @@
       you should just append to the existing 'LATEST' tag.
       -->
 
-	  <release-note plugin-version="2">
-Initial release of the Nodejs plugin which provides steps for installing Nodejs (and npm) and install Node Modules.
-	  </release-note>
-    <release-note plugin-version="3">
-Initial GitHub Release
-	  </release-note>
-    <release-note plugin-version="4">
-Adding node configuration task, added version option to node module installation.
-	  </release-note>
-  </release-notes>
+      <release-note plugin-version="2">
+          Initial release of the Nodejs plugin which provides steps for installing Nodejs (and npm) and install Node Modules.
+      </release-note>
+      <release-note plugin-version="3">
+          Initial GitHub Release
+      </release-note>
+      <release-note plugin-version="4">
+          Adding node configuration task, added version option to node module installation.
+      </release-note>
+    </release-notes>
 </pluginInfo>
