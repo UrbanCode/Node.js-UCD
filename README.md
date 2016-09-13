@@ -1,4 +1,4 @@
-# IBM UrbanCode Deploy Node.js Plugin
+# IBM UrbanCode Deploy Node.js Plugin [![Build Status](https://travis-ci.org/IBM-UrbanCode/Node.js-UCD.svg?branch=master)](https://travis-ci.org/IBM-UrbanCode/Node.js-UCD)
 ---
 Note: This is not the plugin distributable! This is the source code. To find the installable plugin, go into the 'Releases' tab, and download a stable version.
 
@@ -19,8 +19,8 @@ This plugin is protected under the [Eclipse Public 1.0 License](http://www.eclip
 
 ### History
     Version 4
-    Adding Configure npm step.
-    Added version option to Install Module step.
+        Adding Configure npm step.
+        Added version option to Install Module step.
     Version 3
         Community GitHub Release
 
