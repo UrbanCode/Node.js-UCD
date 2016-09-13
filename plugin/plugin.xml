@@ -2,16 +2,16 @@
 <!--
 
 /**
- * © Copyright IBM Corporation 2014.  
+ * © Copyright IBM Corporation 2014.
  * This is licensed under the following license.
  * The Eclipse Public 1.0 License (http://www.eclipse.org/legal/epl-v10.html)
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. 
+ * U.S. Government Users Restricted Rights:  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  */
 
 -->
 <plugin xmlns='http://www.urbancode.com/PluginXMLSchema_v1' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
   <header>
-    <identifier id='com.urbancode.air.plugin.Nodejs' version='3' name='Nodejs' />
+    <identifier id='com.urbancode.air.plugin.Nodejs' version='4' name='Nodejs' />
     <description>The Nodejs plugin is an automation based plugin for IBM UrbanCode Deploy. It is used to install and configure Node.js.</description>
     <tag>Middleware/Nodejs</tag>
   </header>
@@ -19,12 +19,12 @@
     <description>Install Nodejs on a target server.</description>
     <properties>
     </properties>
-    <post-processing><![CDATA[ 
+    <post-processing><![CDATA[
  if (properties.get("exitCode") != 0) {
  properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
  }
- else { 
- properties.put("Status", "Success"); 
+ else {
+ properties.put("Status", "Success");
  }
  ]]></post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
@@ -41,22 +41,54 @@
       <property name='moduleName' required='true'>
         <property-ui type='textBox' label='Node Module Name' description='Name of the Node Module to Install.' />
       </property>
+      <property name='moduleVersion' required='false'>
+        <property-ui type='textBox' label='Node Module Version' description='Version of module to deploy.'  />
+      </property>
       <property name='modulePath' required='false'>
         <property-ui type='textBox' label='Node Module Path' description='Path in which to install the Node Module.' />
       </property>
     </properties>
-    <post-processing><![CDATA[ 
+    <post-processing><![CDATA[
  if (properties.get("exitCode") != 0) {
  properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
  }
- else { 
- properties.put("Status", "Success"); 
+ else {
+ properties.put("Status", "Success");
  }
  ]]></post-processing>
     <command program='${GROOVY_HOME}/bin/groovy'>
       <arg value='-cp' />
       <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
       <arg file='install_module.groovy' />
+      <arg file='${PLUGIN_INPUT_PROPS}' />
+      <arg file='${PLUGIN_OUTPUT_PROPS}' />
+    </command>
+  </step-type>
+  <step-type name='Configure npm'>
+    <description>Configure npm by key and value.</description>
+    <properties>
+      <property name='modulePath' required='false'>
+        <property-ui type='textBox' label='Node Module Path' description='Path in which to configure the Node Module.' />
+      </property>
+      <property name='npmConfigKey' required='true'>
+        <property-ui type='textBox' label='Node Configuration Key' description='Key which you want to configure for Node.' />
+      </property>
+      <property name='npmConfigValue' required='true'>
+        <property-ui type='textBox' label='Node Configuration Value' description='Value which you want to configure for Node.' />
+      </property>
+    </properties>
+    <post-processing><![CDATA[
+ if (properties.get("exitCode") != 0) {
+ properties.put(new java.lang.String("Status"), new java.lang.String("Failure"));
+ }
+ else {
+ properties.put("Status", "Success");
+ }
+ ]]></post-processing>
+    <command program='${GROOVY_HOME}/bin/groovy'>
+      <arg value='-cp' />
+      <arg path='classes:lib/groovy-plugin-utils-1.0.jar' />
+      <arg file='configure-node.groovy' />
       <arg file='${PLUGIN_INPUT_PROPS}' />
       <arg file='${PLUGIN_OUTPUT_PROPS}' />
     </command>
