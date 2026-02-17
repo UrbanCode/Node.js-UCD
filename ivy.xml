@@ -20,6 +20,8 @@
         <!-- http://search.maven.org/#artifactdetails%7Corg.hamcrest%7Chamcrest-core%7C1.3%7Cjar -->
         <dependency org="org.hamcrest" name="hamcrest-core" rev="1.3" transitive="false" conf="test->default"/>
         <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
-        <dependency org="org.codehaus.groovy" name="groovy-all" rev="1.8.8" transitive="false" conf="build->default"/>
+        <dependency org="org.codehaus.groovy" name="groovy-all" rev="3.0.9" transitive="false" conf="build->default"/>
+        <dependency org="org.codehaus.groovy" name="groovy-ant" rev="3.0.9" transitive="false" conf="build->default"/>
+        <dependency org="org.codehaus.groovy" name="groovy" rev="3.0.9" transitive="false" conf="build->default"/>
     </dependencies>
 </ivy-module>
