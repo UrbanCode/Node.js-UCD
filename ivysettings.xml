@@ -1,0 +1,17 @@
+<ivysettings>
+
+    <include url="${ivy.default.settings.dir}/ivysettings.xml"/>
+
+    <resolvers>
+
+        <ibiblio name="central" m2compatible="true"  root="https://repo.maven.apache.org/maven2/"/>
+
+        <chain name="external" returnFirst="true">
+            <resolver ref="default"/>
+            <resolver ref="central"/>
+        </chain>
+    </resolvers>
+
+    <settings defaultResolver="external"/>
+
+</ivysettings>
